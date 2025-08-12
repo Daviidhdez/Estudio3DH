@@ -23,37 +23,149 @@
     </header>
     <!--Servicios-->
     <section id="servicios" class="section servicios">
-        <div class="container">
-            <h2>Servicios</h2>
-            <div class="servicios-grid">
-                <div class="servicio">
-                    <h3>Diseño web personalizado</h3>
-                    <p>Diseñamos sitios únicos que reflejan la identidad de tu marca, con enfoque en usabilidad y
-                        estética.</p>
-                </div>
-                <div class="servicio">
-                    <h3>Desarrollo de sitios responsivos</h3>
-                    <p>Tu web se verá y funcionará perfectamente en móviles, tablets y ordenadores.</p>
-                </div>
-                <div class="servicio">
-                    <h3>Mantenimiento y optimización SEO</h3>
-                    <p>Mejoramos el rendimiento, velocidad y posicionamiento en buscadores para que tu sitio destaque.
-                    </p>
-                </div>
-                <div class="servicio">
-  <h3>Asistencia IA en página web</h3>
-  <p>Integramos un asistente virtual basado en inteligencia artificial directamente en tu sitio web.</p>
-</div>
+  <div class="container">
+    <h2>Servicios</h2>
+    <p class="section-subtitle">Descubre cómo podemos ayudarte a llevar tu presencia digital al siguiente nivel.</p>
+    <div class="servicios-grid">
+      <div class="servicio">
+        <div class="icono">💻</div>
+        <h3>Diseño web personalizado</h3>
+        <p>Diseñamos sitios únicos que reflejan la identidad de tu marca, con enfoque en usabilidad y estética.</p>
+      </div>
+      <div class="servicio">
+        <div class="icono">📱</div>
+        <h3>Desarrollo de sitios responsivos</h3>
+        <p>Tu web se verá y funcionará perfectamente en móviles, tablets y ordenadores.</p>
+      </div>
+      <div class="servicio">
+        <div class="icono">🚀</div>
+        <h3>Mantenimiento y optimización SEO</h3>
+        <p>Mejoramos el rendimiento, velocidad y posicionamiento en buscadores para que tu sitio destaque.</p>
+      </div>
+      <div class="servicio">
+        <div class="icono">🤖</div>
+        <h3>Asistencia IA en página web</h3>
+        <p>Integramos un asistente virtual basado en inteligencia artificial directamente en tu sitio web.</p>
+      </div>
+       <div class="servicio">
+        <div class="icono">🛠️</div>
+        <h3>Mantenimiento y reparación de equipos</h3>
+        <p>Ofrecemos soporte técnico completo para mantener y reparar tus equipos informáticos, asegurando su óptimo funcionamiento.</p>
+      </div>
 
-            </div>
-        </div>
-    </section>
+      <div class="servicio">
+        <div class="icono">💾</div>
+        <h3>Instalación y configuración de software</h3>
+        <p>Instalamos y configuramos software adaptado a tus necesidades, garantizando compatibilidad y rendimiento.</p>
+      </div>
+    </div>
+    <div class="cta-servicios">
+      <a href="../web/contacto.html" class="btn">Solicita más información</a>
+    </div>
+  </div>
+</section>
 
+<div id="chatbot-button">
+    <img src="../img/robot.png" alt="Asistente virtual de Estudio-3DH" />
+  </div>
 
+  <div id="chatbot-window" class="hidden">
+    <div id="chatbot-header">
+      <h3>¿Necesitas ayuda?</h3>
+      <button id="chatbot-close">×</button>
+    </div>
+    <div id="chatbot-messages">
+      <div class="bot-message">¡Hola! Soy Estudio-3DH Bot. ¿En qué puedo ayudarte?</div>
+    </div>
+    <input type="text" id="chatbot-input" placeholder="Escribe tu pregunta..." />
+  </div>
 
     <footer>
-        <p>&copy; 2025 Estudio-3DH.</p>
-    </footer>
+  <div class="footer-container">
+    <p>&copy; 2025 Estudio-3DH. Todos los derechos reservados.</p>
+    <nav>
+<a href="/politica-privacidad.html">Política de Privacidad</a>
+    </nav>
+    <p>
+      Síguenos:
+      <a href="https://facebook.com/estudio3dh" target="_blank" rel="noopener noreferrer">Facebook</a> |
+      <a href="https://twitter.com/estudio3dh" target="_blank" rel="noopener noreferrer">Twitter</a> |
+      <a href="https://linkedin.com/company/estudio3dh" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </p>
+  </div>
+</footer>
+<script>
+  const chatbotWindow = document.getElementById('chatbot-window');
+  const chatbotMessages = document.getElementById('chatbot-messages');
+  const chatbotInput = document.getElementById('chatbot-input');
+  const chatbotClose = document.getElementById('chatbot-close');
+  const chatbotButton = document.getElementById('chatbot-button');
+
+  // Mostrar el chat automáticamente a los 4 segundos si no está cerrado previamente
+  window.addEventListener('load', () => {
+    if (!localStorage.getItem('chatbotClosed')) {
+      setTimeout(() => {
+        chatbotWindow.classList.remove('hidden');
+        chatbotInput.focus();
+      }, 4000);
+    }
+  });
+
+  // Reabrir el chat cuando haces clic en el bot
+  chatbotButton.addEventListener('click', () => {
+    chatbotWindow.classList.remove('hidden');
+    chatbotInput.focus();
+  });
+
+  // Cerrar el chat y guardar estado en localStorage
+  chatbotClose.addEventListener('click', () => {
+    chatbotWindow.classList.add('hidden');
+    localStorage.setItem('chatbotClosed', 'true');
+  });
+
+  // Enviar mensaje al presionar Enter
+  chatbotInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && chatbotInput.value.trim() !== '') {
+      const userText = chatbotInput.value.trim();
+      addMessage(userText, 'user');
+      chatbotInput.value = '';
+      setTimeout(() => {
+        respondTo(userText);
+      }, 700);
+    }
+  });
+
+  function addMessage(text, sender) {
+    const messageDiv = document.createElement('div');
+    messageDiv.textContent = text;
+    messageDiv.className = sender === 'user' ? 'user-message' : 'bot-message';
+    chatbotMessages.appendChild(messageDiv);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+  }
+
+  function sendBotMessage(text) {
+    addMessage(text, 'bot');
+  }
+
+  function respondTo(text) {
+    const lower = text.toLowerCase();
+    let response = "Lo siento, no entendí tu pregunta. Puedes escribirnos directamente desde la página de contacto.";
+
+    if (lower.includes('hola') || lower.includes('buenas')) {
+      response = "¡Hola! ¿Cómo puedo ayudarte hoy?";
+    } else if (lower.includes('servicio') || lower.includes('qué haces')) {
+      response = "Ofrecemos diseño web personalizado, desarrollo responsivo, mantenimiento SEO, tiendas online y más.";
+    } else if (lower.includes('contacto') || lower.includes('cómo contacto')) {
+      response = "Puedes usar el formulario de contacto o enviarnos un email a info@estudio3dh.com.";
+    } else if (lower.includes('precio') || lower.includes('cuánto cuesta')) {
+      response = "Nuestros precios dependen del proyecto. ¡Contáctanos para un presupuesto sin compromiso!";
+    } else if (lower.includes('gracias')) {
+      response = "¡De nada! Si tienes más preguntas, estoy aquí para ayudarte.";
+    }
+
+    sendBotMessage(response);
+  }
+</script>
 
 
 </body>

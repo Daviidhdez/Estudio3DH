@@ -20,42 +20,179 @@
         </nav>
      </header>
 
-    <section id="contacto" class="section contacto">
-        <div class="container">
-            <h2>Contacto</h2>
+ <section id="contacto" class="section contacto">
+  <div class="container">
+    <h2>Contacto</h2>
+    <p>¿Interesado en trabajar con nosotros o en saber más sobre nuestros servicios? ¡Escríbenos!</p>
 
-            <p>¿Interesado en trabajar con nosotros o en saber más sobre nuestros servicios?</p>
-            <button class="btn toggle-form-btn" onclick="toggleFormulario()">Rellenar formulario para más
-                información</button>
+    <form action="mailto:soluciontecnoinformatica@gmail.com" method="POST" enctype="text/plain" novalidate>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
 
-            <div id="formulario-contacto" class="formulario oculto">
-                <form action="mailto:tucorreo@example.com" method="POST" enctype="text/plain">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" required>
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email" placeholder="tuemail@ejemplo.com" required>
 
-                    <label for="email">Correo electrónico:</label>
-                    <input type="email" id="email" name="email" required>
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
 
-                    <label for="mensaje">Mensaje:</label>
-                    <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+      <button type="submit" class="btn enviar-btn">Enviar</button>
+    </form>
 
-                    <button type="submit">Enviar</button>
-                </form>
-            </div>
+    <p class="social">
+      Síguenos en:
+      <a href="https://linkedin.com/in/tuusuario" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        🔗 LinkedIn
+      </a> |
+      <a href="https://github.com/tuusuario" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        🐙 GitHub
+      </a>
+    </p>
+  </div>
 
-            <p class="social">
-                Síguenos en:
-                <a href="https://linkedin.com/in/tuusuario" target="_blank">LinkedIn</a> |
-                <a href="https://github.com/tuusuario" target="_blank">GitHub</a>
-            </p>
-        </div>
-    </section>
+  
+</section>
+<div id="chatbot-button">
+    <img src="../img/robot.png" alt="Asistente virtual de Estudio-3DH" />
+  </div>
 
-    <script>
-        function toggleFormulario() {
-            const formulario = document.getElementById('formulario-contacto');
-            formulario.classList.toggle('oculto');
-        }
-    </script>
+  <div id="chatbot-window" class="hidden">
+    <div id="chatbot-header">
+      <h3>¿Necesitas ayuda?</h3>
+      <button id="chatbot-close">×</button>
+    </div>
+    <div id="chatbot-messages">
+      <div class="bot-message">¡Hola! Soy Estudio-3DH Bot. ¿En qué puedo ayudarte?</div>
+    </div>
+    <input type="text" id="chatbot-input" placeholder="Escribe tu pregunta..." />
+  </div>
+<footer>
+  <div class="footer-container">
+    <p>&copy; 2025 Estudio-3DH. Todos los derechos reservados.</p>
+    <nav>
+<a href="/politica-privacidad.html">Política de Privacidad</a>
+    </nav>
+    <p>
+      Síguenos:
+      <a href="https://facebook.com/estudio3dh" target="_blank" rel="noopener noreferrer">Facebook</a> |
+      <a href="https://twitter.com/estudio3dh" target="_blank" rel="noopener noreferrer">Twitter</a> |
+      <a href="https://linkedin.com/company/estudio3dh" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  function toggleFormulario() {
+    const formulario = document.getElementById('formulario-contacto');
+    formulario.classList.toggle('oculto');
+    // Cambiar aria-hidden para accesibilidad
+    formulario.setAttribute('aria-hidden', formulario.classList.contains('oculto'));
+  }
+</script>
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("TU_USER_ID"); // Pon aquí tu User ID de EmailJS
+  })();
+
+  const form = document.getElementById('contact-form');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    emailjs.sendForm('TU_SERVICE_ID', 'TU_TEMPLATE_ID', this)
+      .then(function() {
+        alert('Correo enviado con éxito, ¡gracias por contactarnos!');
+        form.reset();
+        // Opcional: ocultar el formulario después de enviar
+        toggleFormulario();
+      }, function(error) {
+        alert('Hubo un error al enviar el correo. Inténtalo nuevamente.');
+        console.error('Error:', error);
+      });
+  });
+  /*Crea tu cuenta en EmailJS.
+
+Configura un servicio con tu correo soluciontecnoinformatica@gmail.com.
+
+Crea una plantilla donde los campos sean nombre, email y mensaje.
+
+Copia los IDs de usuario, servicio y plantilla y ponlos en el script en lugar de "TU_USER_ID", "TU_SERVICE_ID" y "TU_TEMPLATE_ID".*/
+</script>
+<script>
+  const chatbotWindow = document.getElementById('chatbot-window');
+  const chatbotMessages = document.getElementById('chatbot-messages');
+  const chatbotInput = document.getElementById('chatbot-input');
+  const chatbotClose = document.getElementById('chatbot-close');
+  const chatbotButton = document.getElementById('chatbot-button');
+
+  // Mostrar el chat automáticamente a los 4 segundos si no está cerrado previamente
+  window.addEventListener('load', () => {
+    if (!localStorage.getItem('chatbotClosed')) {
+      setTimeout(() => {
+        chatbotWindow.classList.remove('hidden');
+        chatbotInput.focus();
+      }, 4000);
+    }
+  });
+
+  // Reabrir el chat cuando haces clic en el bot
+  chatbotButton.addEventListener('click', () => {
+    chatbotWindow.classList.remove('hidden');
+    chatbotInput.focus();
+  });
+
+  // Cerrar el chat y guardar estado en localStorage
+  chatbotClose.addEventListener('click', () => {
+    chatbotWindow.classList.add('hidden');
+    localStorage.setItem('chatbotClosed', 'true');
+  });
+
+  // Enviar mensaje al presionar Enter
+  chatbotInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && chatbotInput.value.trim() !== '') {
+      const userText = chatbotInput.value.trim();
+      addMessage(userText, 'user');
+      chatbotInput.value = '';
+      setTimeout(() => {
+        respondTo(userText);
+      }, 700);
+    }
+  });
+
+  function addMessage(text, sender) {
+    const messageDiv = document.createElement('div');
+    messageDiv.textContent = text;
+    messageDiv.className = sender === 'user' ? 'user-message' : 'bot-message';
+    chatbotMessages.appendChild(messageDiv);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+  }
+
+  function sendBotMessage(text) {
+    addMessage(text, 'bot');
+  }
+
+  function respondTo(text) {
+    const lower = text.toLowerCase();
+    let response = "Lo siento, no entendí tu pregunta. Puedes escribirnos directamente desde la página de contacto.";
+
+    if (lower.includes('hola') || lower.includes('buenas')) {
+      response = "¡Hola! ¿Cómo puedo ayudarte hoy?";
+    } else if (lower.includes('servicio') || lower.includes('qué haces')) {
+      response = "Ofrecemos diseño web personalizado, desarrollo responsivo, mantenimiento SEO, tiendas online y más.";
+    } else if (lower.includes('contacto') || lower.includes('cómo contacto')) {
+      response = "Puedes usar el formulario de contacto o enviarnos un email a info@estudio3dh.com.";
+    } else if (lower.includes('precio') || lower.includes('cuánto cuesta')) {
+      response = "Nuestros precios dependen del proyecto. ¡Contáctanos para un presupuesto sin compromiso!";
+    } else if (lower.includes('gracias')) {
+      response = "¡De nada! Si tienes más preguntas, estoy aquí para ayudarte.";
+    }
+
+    sendBotMessage(response);
+  }
+</script>
+
+
+
 </body>
 </html>

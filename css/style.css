@@ -111,6 +111,18 @@ nav ul li a:focus {
     margin-bottom: 2rem;
 }
 
+.about-image {
+  display: block;
+  max-width: 80px;
+  width: 75%;
+  height: 75%;
+  margin: 2rem auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  object-fit: contain;
+}
+
+
 .about p {
     max-width: 900px;
     margin: 0 auto 1rem auto;
@@ -171,94 +183,92 @@ nav ul li a:focus {
     color: #ff9900;
 }
 
-/* Contenedor principal */
-.about-container {
-    display: flex;
-    gap: 30px;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 20px;
-    background: linear-gradient(135deg, #e3f2fd, #ffffff);
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+ /* Estilos específicos para Sobre Nosotros */
+        .about-section {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 2rem 1rem;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            color: #222;
+        }
+
+        .about-section h1 {
+            font-size: 2.8rem;
+            color: #007acc;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .about-section p {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .values-list {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+      .value-item {
+  flex: 1 1 200px;
+  background: #e3f2fd;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  text-align: center;
 }
 
-/* Texto principal */
-.about-content {
-    flex: 1 1 100%;
+
+
+        .value-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .value-item h3 {
+            color: #004aad;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+      .value-item p {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+  text-align: center;
+  justify-content: center;
 }
 
-.about-content h1 {
-    font-size: 2.2rem;
-    color: #0077b6;
-    margin-bottom: 15px;
-}
 
-.about-content p {
-    color: #333;
-    margin-bottom: 15px;
-}
+        /* Imagen del equipo o ilustración */
+        .about-image {
+            max-width: 100%;
+            margin: 2rem auto 0;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
 
-/* Sección de destacados */
-.about-highlights {
-    display: flex;
-    gap: 20px;
-    margin-top: 30px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-section h1 {
+                font-size: 2rem;
+            }
 
-.about-highlights .highlight {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-    flex: 1 1 250px;
-    max-width: 300px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.about-highlights .highlight:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-}
-
-.about-highlights img {
-    width: 120px;
-    height: auto;
-    margin-bottom: 10px;
-    border-radius: 10px;
-}
-
-.about-highlights h3 {
-    color: #0077b6;
-    margin-bottom: 5px;
-}
-
-.about-highlights p {
-    font-size: 0.95rem;
-    color: #555;
-}
-
-/* Navegación activa */
-nav ul li a.active {
-    font-weight: bold;
-    color: #0077b6;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .about-container {
-        flex-direction: column;
-        text-align: center;
-    }
-    .about-highlights {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
+            .value-item {
+                flex: 1 1 100%;
+            }
+        }
 
 
 /* Portafolio */
@@ -290,144 +300,237 @@ nav ul li a.active {
 
 
 
-/* Servicios */
-
 .servicios {
-    background-color: #ffffff;
-    padding: 4rem 1rem;
-    text-align: center;
+  background: #f5f9ff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 1200px;
+  margin: 2rem auto;
 }
 
-.servicios h2 {
-    font-size: 2.5rem;
-    color: #1e3c72;
-    margin-bottom: 2.5rem;
+.servicios .section-subtitle {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 3rem;
+  text-align: center;
 }
 
 .servicios-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    max-width: 1100px;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .servicio {
-    background-color: #f9f9f9;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #f9f9f9;
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
 }
 
 .servicio:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.servicio .icono {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: #00b39f;  /* tono un poco más suave */
+  user-select: none;
 }
 
 .servicio h3 {
-    color: #007acc;
-    margin-bottom: 0.8rem;
-    font-size: 1.2rem;
+  color: #007acc;
+  margin-bottom: 0.8rem;
+  font-size: 1.4rem;
+  font-weight: 600;
 }
 
 .servicio p {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.6;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Botón CTA */
+.cta-servicios {
+  margin-top: 3rem;
+}
+
+.cta-servicios .btn {
+  background-color: #00ffcc;
+  color: #000;
+  padding: 0.9rem 2rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 15px rgba(0, 255, 204, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.cta-servicios .btn:hover {
+  background-color: #00ccb3;
+  box-shadow: 0 10px 25px rgba(0, 204, 179, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .servicios-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 
-
-/* Formulario */
-
-.contacto {
-    background-color: #f9f9f9;
-    padding: 4rem 1rem;
-    text-align: center;
+#contacto {
+  display: flex;
+  justify-content: center; /* centra horizontal */
+  padding: 4rem 1rem; /* espacio arriba y abajo */
+  background-color: #f0f4f8;
 }
 
-.contacto h2 {
-    font-size: 2.5rem;
-    color: #1e3c72;
-    margin-bottom: 1.5rem;
+#contacto .container {
+  max-width: 480px;
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  color: #222;
+  margin: auto; /* centra horizontal */
 }
 
-.contacto .btn {
-    margin-top: 1rem;
-    padding: 0.8rem 1.8rem;
-    background-color: #007acc;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+#contacto h2 {
+  text-align: center;
+  color: #007acc;
+  margin-bottom: 1rem;
+  font-size: 2.4rem;
 }
 
-.contacto .btn:hover {
-    background-color: #005f99;
+#contacto p {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  color: #555;
 }
 
-.formulario {
-    max-width: 600px;
-    margin: 2rem auto;
-    text-align: left;
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-input,
+label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #004aad;
+}
+
+input[type="text"],
+input[type="email"],
 textarea {
-    width: 100%;
-    padding: 0.75rem;
-    margin-top: 0.5rem;
-    margin-bottom: 1.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+  resize: vertical;
 }
 
-button[type="submit"] {
-    background-color: #00cc88;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: #007acc;
+  box-shadow: 0 0 8px #80bfff;
 }
 
-button[type="submit"]:hover {
-    background-color: #009f6b;
+.btn.enviar-btn {
+  background-color: #007acc;
+  color: white;
+  border: none;
+  padding: 0.85rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  margin-top: 1rem;
 }
 
-.oculto {
-    display: none;
+.btn.enviar-btn:hover {
+  background-color: #005fa3;
 }
 
 .social {
-    margin-top: 2rem;
-    font-size: 1rem;
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 1rem;
+  color: #333;
 }
 
 .social a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: bold;
+  color: #007acc;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  transition: color 0.3s ease;
 }
 
 .social a:hover {
-    text-decoration: underline;
+  color: #005fa3;
 }
 
-footer {
-    text-align: center;
-    padding: 1rem 0;
-    background-color: #222;
-    color: #aaa;
-    margin-top: 2rem;
+/* Responsive */
+@media (max-width: 500px) {
+  #contacto .container {
+    padding: 1.5rem 1rem;
+  }
 }
 
+/*Terminación Footer*/
+
+.footer-container {
+  width: 100%;               /* ocupa todo el ancho */
+  background-color: #111;    /* fondo oscuro */
+  color: #aaa;               /* texto gris claro */
+  padding: 2rem 1rem;        /* espacio interno */
+  box-sizing: border-box;    /* para que padding no aumente ancho */
+  border-radius: 12px;       /* bordes redondeados */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* sombra */
+  text-align: center;        /* texto centrado */
+}
+
+
+/* links en footer */
+footer nav a,
+footer p a {
+  color: #00ffcc;
+  text-decoration: none;
+  margin: 0 0.3rem;
+  transition: color 0.3s ease;
+}
+
+footer nav a:hover,
+footer p a:hover {
+  color: #66fff0;
+  text-decoration: underline;
+}
+
+
+
+
+
+/* Chatbot Hablar Con IA*/
 #chatbot-button {
   position: fixed;
   bottom: 20px;
@@ -435,88 +538,126 @@ footer {
   background: transparent;
   border: none;
   cursor: pointer;
-  z-index: 1000;
-}
-
-#chatbot-button img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
+  z-index: 10000;
   transition: transform 0.3s ease;
 }
 
-#chatbot-button img:hover {
-  transform: scale(1.1);
+#chatbot-button img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+#chatbot-button:hover img,
+#chatbot-button:focus img {
+  transform: scale(1.15);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+  outline: none;
+}
 
-  #chatbot-window {
-    position: fixed;
-    bottom: 100px;
-    right: 20px;
-    width: 300px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
+#chatbot-window {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  width: 320px;
+  max-width: 90vw;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  z-index: 10001;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-  #chatbot-window.hidden {
-    display: none;
-  }
+#chatbot-window.hidden {
+  display: none;
+}
 
-  #chatbot-header {
-    background: #004aad;
-    color: white;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+#chatbot-header {
+  background: #004aad;
+  color: white;
+  padding: 12px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  user-select: none;
+}
 
-  #chatbot-messages {
-    flex: 1;
-    padding: 10px;
-    overflow-y: auto;
-    max-height: 300px;
-  }
-
-  #chatbot-close {
-  background: none;
+#chatbot-close {
+  background: transparent;
   border: none;
-  font-size: 20px;
+  font-size: 24px;
+  color: white;
   cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s ease;
 }
 
-  .bot-message, .user-message {
-    margin: 5px 0;
-    padding: 8px;
-    border-radius: 5px;
-    max-width: 90%;
-  }
+#chatbot-close:hover,
+#chatbot-close:focus {
+  color: #ffd700;
+  outline: none;
+}
 
-  .bot-message {
-    background: #f0f0f0;
-    align-self: flex-start;
-  }
+#chatbot-messages {
+  flex: 1;
+  padding: 12px 15px;
+  overflow-y: auto;
+  max-height: 320px;
+  background: #fafafa;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #222;
+}
 
-  .user-message {
-    background: #cce5ff;
-    align-self: flex-end;
-  }
+.bot-message, .user-message {
+  margin: 6px 0;
+  padding: 10px 14px;
+  border-radius: 15px;
+  max-width: 80%;
+  word-wrap: break-word;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
 
-  #chatbot-input {
-    border: none;
-    border-top: 1px solid #ddd;
-    padding: 10px;
-    font-size: 14px;
-    width: 100%;
-    box-sizing: border-box;
-  }
+.bot-message {
+  background: #e2e6f0;
+  align-self: flex-start;
+  color: #2c3e50;
+}
 
-  .hidden {
+.user-message {
+  background: #00ffcc;
+  color: #004aad;
+  align-self: flex-end;
+  font-weight: 600;
+}
+
+#chatbot-input {
+  border: none;
+  border-top: 1px solid #ddd;
+  padding: 12px 15px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: inherit;
+  outline: none;
+  transition: background-color 0.3s ease;
+}
+
+#chatbot-input::placeholder {
+  color: #aaa;
+}
+
+#chatbot-input:focus {
+  background-color: #f0f8ff;
+}
+
+.hidden {
   display: none;
 }
