@@ -10,6 +10,7 @@
   <meta property="og:image" content="https://tusitio.com/img/portada.jpg">
   <meta property="og:url" content="https://tusitio.com/">
   <meta name="twitter:card" content="summary_large_image">
+
   <title>Desarrollador Web - Estudio-3DH</title>
   <link rel="stylesheet" href="../css/style.css" />
 
@@ -19,6 +20,12 @@
 <body>
   <header>
     <nav>
+      <button class="hamburger" aria-label="Abrir menú">
+      <!-- Puedes usar un icono SVG o simples divs para las rayitas -->
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
       <ul>
         <li><a href="./index.html">Inicio</a></li>
         <li><a href="../web/Nosotros.html">Sobre Nosotros</a></li>
@@ -93,8 +100,15 @@
   </div>
 </footer>
 
+<script>
+  /*Link Hamburguesa al cerrar*/
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav ul');
 
-
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
 
   <script>
   const chatbotWindow = document.getElementById('chatbot-window');
@@ -168,6 +182,7 @@
     sendBotMessage(response);
   }
 </script>
+
 
 
 </body>
