@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+     <header>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="../web/Nosotros.html">Sobre Nosotros</a></li>
+                <li><a href="../web/portafolio.html">Portafolio</a></li>
+                <li><a href="../web/servicios.html">Servicios</a></li>
+                           <li><a href="../web/contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+     </header>
+
+    <section id="contacto" class="section contacto">
+        <div class="container">
+            <h2>Contacto</h2>
+
+            <p>¿Interesado en trabajar con nosotros o en saber más sobre nuestros servicios?</p>
+            <button class="btn toggle-form-btn" onclick="toggleFormulario()">Rellenar formulario para más
+                información</button>
+
+            <div id="formulario-contacto" class="formulario oculto">
+                <form action="mailto:tucorreo@example.com" method="POST" enctype="text/plain">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+
+            <p class="social">
+                Síguenos en:
+                <a href="https://linkedin.com/in/tuusuario" target="_blank">LinkedIn</a> |
+                <a href="https://github.com/tuusuario" target="_blank">GitHub</a>
+            </p>
+        </div>
+    </section>
+
+    <script>
+        function toggleFormulario() {
+            const formulario = document.getElementById('formulario-contacto');
+            formulario.classList.toggle('oculto');
+        }
+    </script>
+</body>
+</html>

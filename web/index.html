@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Para compartir en redes sociales -->
+  <meta property="og:title" content="Desarrollador Web - Estudio-3DH">
+  <meta property="og:description" content="Diseño y desarrollo web profesional y a medida para tu negocio.">
+  <meta property="og:image" content="https://tusitio.com/img/portada.jpg">
+  <meta property="og:url" content="https://tusitio.com/">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Desarrollador Web - Estudio-3DH</title>
+  <link rel="stylesheet" href="../css/style.css" />
+
+
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="./index.html">Inicio</a></li>
+        <li><a href="../web/Nosotros.html">Sobre Nosotros</a></li>
+        <li><a href="../web/portafolio.html">Portafolio</a></li>
+        <li><a href="../web/servicios.html">Servicios</a></li>
+        <li><a href="../web/contacto.html">Contacto</a></li>
+        
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Sección Hero / Inicio -->
+  <section id="inicio" class="hero">
+    <div class="container">
+      <h1>Hola, somos <span>Estudio-3DH</span></h1>
+      <p>En Estudio-3DH diseñamos y desarrollamos sitios web modernos, rápidos y completamente responsivos,
+        adaptados a las necesidades específicas de tu negocio.</p>
+      <p>Nos especializamos en crear experiencias digitales atractivas y funcionales, que conectan con tus
+        clientes y fortalecen tu presencia online.</p>
+      <p>Trabajamos con las últimas tecnologías web y seguimos las mejores prácticas de diseño y desarrollo,
+        garantizando resultados óptimos en todos los dispositivos.</p>
+      <p>Ya sea que necesites una tienda online, un portafolio profesional o una página corporativa, ofrecemos
+        soluciones a medida que reflejan la identidad única de tu marca.</p>
+      <p>Además, brindamos soporte técnico continuo, mantenimiento web y asesoramiento personalizado para asegurar
+        que tu sitio evolucione junto con tu negocio.</p>
+      <a href="./portafolio.html" class="btn">Ver nuestros trabajos</a>
+    </div>
+  </section>
+
+  <section id="filosofia" class="section filosofia">
+    <h2>Nuestra filosofía</h2>
+    <p>
+      En <strong>Estudio-3DH</strong> creemos firmemente que <em>menos es más</em>. Una página web detallada, bien
+      pensada y visualmente atractiva genera un impacto mucho mayor que una extensa y saturada de contenido.
+    </p>
+    <p>
+      Nos enfocamos en diseñar sitios funcionales, limpios y fáciles de navegar, donde cada elemento aporta valor y guía
+      al usuario hacia lo que realmente importa: <strong>tu marca y tus servicios</strong>.
+    </p>
+    <p>
+      Calidad, usabilidad y estética son los pilares que transforman visitas en clientes.
+    </p>
+  </section>
+
+  <div id="chatbot-button">
+    <img src="../img/robot.png" alt="Asistente virtual de Estudio-3DH" />
+  </div>
+
+  <div id="chatbot-window" class="hidden">
+    <div id="chatbot-header">
+      <h3>¿Necesitas ayuda?</h3>
+      <button id="chatbot-close">×</button>
+    </div>
+    <div id="chatbot-messages">
+      <div class="bot-message">¡Hola! Soy Estudio-3DH Bot. ¿En qué puedo ayudarte?</div>
+    </div>
+    <input type="text" id="chatbot-input" placeholder="Escribe tu pregunta..." />
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Estudio-3DH. Todos los derechos reservados.</p>
+   
+</footer>
+
+  <script>
+    const chatbotWindow = document.getElementById('chatbot-window');
+    const chatbotMessages = document.getElementById('chatbot-messages');
+    const chatbotInput = document.getElementById('chatbot-input');
+    const chatbotClose = document.getElementById('chatbot-close');
+    const chatbotButton = document.getElementById('chatbot-button');
+
+    // Mostrar el chat automáticamente a los 4 segundos
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        chatbotWindow.classList.remove('hidden');
+        chatbotInput.focus();
+      }, 4000);
+    });
+
+    // Reabrir el chat cuando haces clic en el bot
+    chatbotButton.addEventListener('click', () => {
+      chatbotWindow.classList.remove('hidden');
+      chatbotInput.focus();
+    });
+
+    // Cerrar el chat
+    chatbotClose.addEventListener('click', () => {
+      chatbotWindow.classList.add('hidden');
+    });
+
+    // Enviar mensaje al presionar Enter
+    chatbotInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter' && chatbotInput.value.trim() !== '') {
+        const userText = chatbotInput.value.trim();
+        addMessage(userText, 'user');
+        chatbotInput.value = '';
+        setTimeout(() => {
+          respondTo(userText);
+        }, 700);
+      }
+    });
+
+    function addMessage(text, sender) {
+      const messageDiv = document.createElement('div');
+      messageDiv.textContent = text;
+      messageDiv.className = sender === 'user' ? 'user-message' : 'bot-message';
+      chatbotMessages.appendChild(messageDiv);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+
+    function sendBotMessage(text) {
+      addMessage(text, 'bot');
+    }
+
+    function respondTo(text) {
+      const lower = text.toLowerCase();
+      let response = "Lo siento, no entendí tu pregunta. Puedes escribirnos directamente desde la página de contacto.";
+
+      if (lower.includes('hola') || lower.includes('buenas')) {
+        response = "¡Hola! ¿Cómo puedo ayudarte hoy?";
+      } else if (lower.includes('servicio') || lower.includes('qué haces')) {
+        response = "Ofrecemos diseño web personalizado, desarrollo responsivo, mantenimiento SEO, tiendas online y más.";
+      } else if (lower.includes('contacto') || lower.includes('cómo contacto')) {
+        response = "Puedes usar el formulario de contacto o enviarnos un email a info@estudio3dh.com.";
+      } else if (lower.includes('precio') || lower.includes('cuánto cuesta')) {
+        response = "Nuestros precios dependen del proyecto. ¡Contáctanos para un presupuesto sin compromiso!";
+      } else if (lower.includes('gracias')) {
+        response = "¡De nada! Si tienes más preguntas, estoy aquí para ayudarte.";
+      }
+
+      sendBotMessage(response);
+    }
+  </script>
+
+
+</body>
+
+</html>

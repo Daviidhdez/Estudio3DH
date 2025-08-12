@@ -1,0 +1,33 @@
+
+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
+
+
+
+/*async function respondTo(text) {
+    addMessage("Pensando...", 'bot');
+
+    try {
+      const response = await fetch("https://api.openai.com/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer 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"
+        },
+        body: JSON.stringify({
+          model: "gpt-3.5-turbo",
+          messages: [{ role: "user", content: text }],
+          max_tokens: 100,
+          temperature: 0.7
+        })
+      });
+
+      const data = await response.json();
+      const reply = data.choices[0].message.content.trim();
+
+      chatbotMessages.lastChild.remove(); // Elimina "Pensando..."
+      sendBotMessage(reply);
+    } catch (error) {
+      chatbotMessages.lastChild.remove();
+      sendBotMessage("Hubo un error al contactar con la IA.");
+      console.error(error);
+    }*/
