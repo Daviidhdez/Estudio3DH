@@ -273,34 +273,166 @@ nav ul li a:focus {
         }
 
 
-/* Portafolio */
-
-.portfolio .disabled-link {
-    color: #999;
-    pointer-events: none;
-    cursor: default;
-    text-decoration: none;
-    font-style: italic;
+/* Sección Portafolio */
+.portfolio {
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, #f0f4f8, #e8f0f3);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
 }
 
+.portfolio h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #0a2f4f;
+}
+
+.portfolio > p {
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+  font-size: 1.1rem;
+  text-align: center;
+  color: #555;
+}
+
+/* Grid de items */
+.portfolio-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto 3rem auto;
+}
+
+/* Card de cada item */
+.portfolio-items .item {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+}
+
+.portfolio-items .item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+/* Imagen con overlay */
+.portfolio-items .item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.portfolio-items .item:hover img {
+  transform: scale(1.05);
+}
+
+.portfolio-items .item h3 {
+  font-size: 1.3rem;
+  margin: 1rem 1rem 0.5rem;
+  color: #007acc;
+}
+
+.portfolio-items .item p {
+  font-size: 0.95rem;
+  margin: 0 1rem 0.8rem;
+  color: #555;
+}
+
+.portfolio-items .item small {
+  display: block;
+  margin: 0 1rem 1rem;
+  font-size: 0.85rem;
+  color: #888;
+  font-style: italic;
+}
+
+/* Lista de pasos */
+.portfolio ul {
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  padding-left: 1.2rem;
+  font-size: 1.05rem;
+  color: #444;
+}
+
+.portfolio ul li {
+  margin-bottom: 0.6rem;
+}
+
+/* CTA */
 .portfolio-call-to-action {
-    margin-top: 2rem;
-    font-size: 1.1rem;
-    text-align: center;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
 }
 
 .portfolio-call-to-action a {
-    color: #007acc;
-    font-weight: bold;
-    text-decoration: none;
+  color: #007acc;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
 }
 
 .portfolio-call-to-action a:hover {
-    text-decoration: underline;
+  border-bottom: 2px solid #007acc;
+}
+
+.workflow-title {
+  text-align: center;
+  font-size: 2rem;
+  margin: 3rem 0 1.5rem;
+  color: #0a2f4f;
+}
+
+.workflow-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto 3rem auto;
+}
+
+.step {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.step-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.step p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.step strong {
+  color: #007acc;
 }
 
 
 
+
+/*Servicio*/
 
 .servicios {
   background: #f5f9ff;
