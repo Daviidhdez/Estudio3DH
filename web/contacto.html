@@ -23,9 +23,11 @@
  <section id="contacto" class="section contacto">
   <div class="container">
     <h2>Contacto</h2>
-    <p>¿Interesado en trabajar con nosotros o en saber más sobre nuestros servicios? ¡Escríbenos!</p>
+    <p>¿Interesado en saber más sobre nuestros servicios? ¡Escríbenos!</p>
 
-    <form action="mailto:soluciontecnoinformatica@gmail.com" method="POST" enctype="text/plain" novalidate>
+  <form id="contact-form" novalidate>
+
+
       <label for="nombre">Nombre:</label>
       <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
 
@@ -77,33 +79,25 @@
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
   (function(){
-    emailjs.init("TU_USER_ID"); // Pon aquí tu User ID de EmailJS
+    emailjs.init("4D53Y4dgNdMMzR8rs"); // Reemplaza con tu User ID de EmailJS
   })();
 
   const form = document.getElementById('contact-form');
 
   form.addEventListener('submit', function(event) {
-    event.preventDefault();
+    event.preventDefault(); // Evita recargar la página
 
-    emailjs.sendForm('TU_SERVICE_ID', 'TU_TEMPLATE_ID', this)
+    emailjs.sendForm('service_studiodh', 'template_studiodh', this)
       .then(function() {
         alert('Correo enviado con éxito, ¡gracias por contactarnos!');
         form.reset();
-        // Opcional: ocultar el formulario después de enviar
-        toggleFormulario();
       }, function(error) {
         alert('Hubo un error al enviar el correo. Inténtalo nuevamente.');
         console.error('Error:', error);
       });
   });
-  /*Crea tu cuenta en EmailJS.
-
-Configura un servicio con tu correo soluciontecnoinformatica@gmail.com.
-
-Crea una plantilla donde los campos sean nombre, email y mensaje.
-
-Copia los IDs de usuario, servicio y plantilla y ponlos en el script en lugar de "TU_USER_ID", "TU_SERVICE_ID" y "TU_TEMPLATE_ID".*/
 </script>
+
 <script>
   const chatbotWindow = document.getElementById('chatbot-window');
   const chatbotMessages = document.getElementById('chatbot-messages');
