@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
 
-     <header>
-        <nav>
-            <ul>
-                <li><a href="./index.html">Inicio</a></li>
-                <li><a href="../web/Nosotros.html">Sobre Nosotros</a></li>
-                <li><a href="../web/portafolio.html">Portfolio</a></li>
-                <li><a href="../web/servicios.html">Servicios</a></li>
-                           <li><a href="../web/contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
-     </header>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="./index.html">Inicio</a></li>
+        <li><a href="../web/Nosotros.html">Sobre Nosotros</a></li>
+        <li><a href="../web/portafolio.html">Portfolio</a></li>
+        <li><a href="../web/servicios.html">Servicios</a></li>
+        <li><a href="../web/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
- <section id="contacto" class="section contacto">
-  <div class="container">
-    <h2>Contacto</h2>
-    <p>¿Interesado en saber más sobre nuestros servicios? ¡Escríbenos!</p>
+  <section id="contacto" class="section contacto">
+    <div class="container">
+      <h2>Contacto</h2>
+      <p>¿Interesado en saber más sobre nuestros servicios? ¡Escríbenos!</p>
 
-  <form id="contact-form" novalidate>
+      <form id="contact-form" novalidate>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" placeholder="tuemail@ejemplo.com" required>
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+
+        <button type="submit" class="btn enviar-btn">Enviar</button>
+      </form>
+    </div>
 
 
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
-
-      <label for="email">Correo electrónico:</label>
-      <input type="email" id="email" name="email" placeholder="tuemail@ejemplo.com" required>
-
-      <label for="mensaje">Mensaje:</label>
-      <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
-
-      <button type="submit" class="btn enviar-btn">Enviar</button>
-    </form>
-  </div>
-
-  
-</section>
-<div id="chatbot-button">
+  </section>
+  <div id="chatbot-button">
     <img src="../img/robot.png" alt="Asistente virtual de Estudio-3DH" />
   </div>
 
@@ -53,125 +53,98 @@
       <button id="chatbot-close">×</button>
     </div>
     <div id="chatbot-messages">
-      <div class="bot-message">¡Hola! Soy Estudio3DH Bot. ¿En qué puedo ayudarte?</div>
+      <div class="bot-message">¡Hola! Soy EstudioDH Bot. ¿En qué puedo ayudarte?</div>
     </div>
     <input type="text" id="chatbot-input" placeholder="Escribe tu pregunta..." />
   </div>
-   <footer>
-  <div class="footer-container">
-    <p>&copy; 2025 EstudioDH. Todos los derechos reservados.</p>
-    <p>
-      Síguenos:
-      <a href="https://www.instagram.com/studio_3dh/" target="_blank" rel="noopener noreferrer"><i class="fa fa-instagram" aria-hidden="true"></i>Instagram</a>
-    </p>
-  </div>
-</footer>
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2025 EstudioDH. Todos los derechos reservados.</p>
+      <p>
+        Síguenos:
+        <a href="https://www.instagram.com/studio_3dh/" target="_blank" rel="noopener noreferrer"><i
+            class="fa fa-instagram" aria-hidden="true"></i>Instagram</a>
+      </p>
+    </div>
+  </footer>
 
-<script>
-  function toggleFormulario() {
-    const formulario = document.getElementById('formulario-contacto');
-    formulario.classList.toggle('oculto');
-    // Cambiar aria-hidden para accesibilidad
-    formulario.setAttribute('aria-hidden', formulario.classList.contains('oculto'));
-  }
-</script>
-
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-  (function(){
-    emailjs.init("4D53Y4dgNdMMzR8rs"); // Reemplaza con tu User ID de EmailJS
-  })();
-
-  const form = document.getElementById('contact-form');
-
-  form.addEventListener('submit', function(event) {
-    event.preventDefault(); // Evita recargar la página
-
-    emailjs.sendForm('service_studiodh', 'template_studiodh', this)
-      .then(function() {
-        alert('Correo enviado con éxito, ¡gracias por contactarnos!');
-        form.reset();
-      }, function(error) {
-        alert('Hubo un error al enviar el correo. Inténtalo nuevamente.');
-        console.error('Error:', error);
-      });
-  });
-</script>
-
-<script>
-  const chatbotWindow = document.getElementById('chatbot-window');
-  const chatbotMessages = document.getElementById('chatbot-messages');
-  const chatbotInput = document.getElementById('chatbot-input');
-  const chatbotClose = document.getElementById('chatbot-close');
-  const chatbotButton = document.getElementById('chatbot-button');
-
-  // Mostrar el chat automáticamente a los 4 segundos si no está cerrado previamente
-  window.addEventListener('load', () => {
-    if (!localStorage.getItem('chatbotClosed')) {
-      setTimeout(() => {
-        chatbotWindow.classList.remove('hidden');
-        chatbotInput.focus();
-      }, 4000);
+  <script>
+    function toggleFormulario() {
+      const formulario = document.getElementById('formulario-contacto');
+      formulario.classList.toggle('oculto');
+      // Cambiar aria-hidden para accesibilidad
+      formulario.setAttribute('aria-hidden', formulario.classList.contains('oculto'));
     }
-  });
+  </script>
 
-  // Reabrir el chat cuando haces clic en el bot
-  chatbotButton.addEventListener('click', () => {
-    chatbotWindow.classList.remove('hidden');
-    chatbotInput.focus();
-  });
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    emailjs.init("4D53Y4dgNdMMzR8rs"); // tu User ID
 
-  // Cerrar el chat y guardar estado en localStorage
-  chatbotClose.addEventListener('click', () => {
-    chatbotWindow.classList.add('hidden');
-    localStorage.setItem('chatbotClosed', 'true');
-  });
+    const form = document.getElementById('contact-form');
 
-  // Enviar mensaje al presionar Enter
-  chatbotInput.addEventListener('keydown', e => {
-    if (e.key === 'Enter' && chatbotInput.value.trim() !== '') {
-      const userText = chatbotInput.value.trim();
-      addMessage(userText, 'user');
-      chatbotInput.value = '';
-      setTimeout(() => {
-        respondTo(userText);
-      }, 700);
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      // Limpiar errores previos
+      document.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+      document.querySelectorAll('.error-message').forEach(el => el.remove());
+
+      let valid = true;
+
+      const nombre = document.getElementById('nombre');
+      const email = document.getElementById('email');
+      const mensaje = document.getElementById('mensaje');
+
+      // Validar nombre
+      if (nombre.value.trim() === "") {
+        showError(nombre, "Campo obligatorio");
+        valid = false;
+      }
+
+      // Validar email
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (email.value.trim() === "") {
+        showError(email, "Campo obligatorio");
+        valid = false;
+      } else if (!emailRegex.test(email.value.trim())) {
+        showError(email, "Correo no válido");
+        valid = false;
+      }
+
+      // Validar mensaje
+      if (mensaje.value.trim() === "") {
+        showError(mensaje, "Campo obligatorio");
+        valid = false;
+      }
+
+      if (!valid) return;
+
+      // Si todo es válido, enviar con EmailJS
+      emailjs.sendForm('service_studiodh', 'template_studiodh', this)
+        .then(() => {
+          alert('Correo enviado con éxito, ¡gracias por contactarnos!');
+          form.reset();
+        })
+        .catch((error) => {
+          console.error('Error al enviar:', error);
+          alert('Hubo un error al enviar el correo. Revisa la consola.');
+        });
+    });
+
+    function showError(element, message) {
+      element.classList.add('error');
+      const msg = document.createElement('div');
+      msg.classList.add('error-message');
+      msg.innerText = message;
+      element.parentNode.insertBefore(msg, element.nextSibling);
     }
-  });
+  </script>
 
-  function addMessage(text, sender) {
-    const messageDiv = document.createElement('div');
-    messageDiv.textContent = text;
-    messageDiv.className = sender === 'user' ? 'user-message' : 'bot-message';
-    chatbotMessages.appendChild(messageDiv);
-    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-  }
 
-  function sendBotMessage(text) {
-    addMessage(text, 'bot');
-  }
-
-  function respondTo(text) {
-    const lower = text.toLowerCase();
-    let response = "Lo siento, no entendí tu pregunta. Puedes escribirnos directamente desde la página de contacto.";
-
-    if (lower.includes('hola') || lower.includes('buenas')) {
-      response = "¡Hola! ¿Cómo puedo ayudarte hoy?";
-    } else if (lower.includes('servicio') || lower.includes('qué haces')) {
-      response = "Ofrecemos diseño web personalizado, desarrollo responsivo, mantenimiento SEO, tiendas online y más.";
-    } else if (lower.includes('contacto') || lower.includes('cómo contacto')) {
-      response = "Puedes usar el formulario de contacto o enviarnos un email a info@estudio3dh.com.";
-    } else if (lower.includes('precio') || lower.includes('cuánto cuesta')) {
-      response = "Nuestros precios dependen del proyecto. ¡Contáctanos para un presupuesto sin compromiso!";
-    } else if (lower.includes('gracias')) {
-      response = "¡De nada! Si tienes más preguntas, estoy aquí para ayudarte.";
-    }
-
-    sendBotMessage(response);
-  }
-</script>
 
 
 
 </body>
+
 </html>

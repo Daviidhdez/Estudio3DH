@@ -53,7 +53,7 @@
   <section id="filosofia" class="section filosofia">
     <h2>Nuestra filosofía</h2>
     <p>
-      En <strong>Estudio-3DH</strong> creemos firmemente que <em>menos es más</em>. Una página web detallada, bien
+      En <strong>EstudioDH</strong> creemos firmemente que <em>menos es más</em>. Una página web detallada, bien
       pensada y visualmente atractiva genera un impacto mucho mayor que una extensa y saturada de contenido.
     </p>
     <p>
@@ -75,7 +75,7 @@
       <button id="chatbot-close">×</button>
     </div>
     <div id="chatbot-messages">
-      <div class="bot-message">¡Hola! Soy Estudio-3DH Bot. ¿En qué puedo ayudarte?</div>
+      <div class="bot-message">¡Hola! Soy EstudioDH Bot. ¿En qué puedo ayudarte?</div>
     </div>
     <input type="text" id="chatbot-input" placeholder="Escribe tu pregunta..." />
   </div>
@@ -89,82 +89,6 @@
     </p>
   </div>
 </footer>
-
-  <script>
-  const chatbotWindow = document.getElementById('chatbot-window');
-  const chatbotMessages = document.getElementById('chatbot-messages');
-  const chatbotInput = document.getElementById('chatbot-input');
-  const chatbotClose = document.getElementById('chatbot-close');
-  const chatbotButton = document.getElementById('chatbot-button');
-
-  // Mostrar el chat automáticamente a los 4 segundos si no está cerrado previamente
-  window.addEventListener('load', () => {
-    if (!localStorage.getItem('chatbotClosed')) {
-      setTimeout(() => {
-        chatbotWindow.classList.remove('hidden');
-        chatbotInput.focus();
-      }, 4000);
-    }
-  });
-
-  // Reabrir el chat cuando haces clic en el bot
-  chatbotButton.addEventListener('click', () => {
-    chatbotWindow.classList.remove('hidden');
-    chatbotInput.focus();
-  });
-
-  // Cerrar el chat y guardar estado en localStorage
-  chatbotClose.addEventListener('click', () => {
-    chatbotWindow.classList.add('hidden');
-    localStorage.setItem('chatbotClosed', 'true');
-  });
-
-  // Enviar mensaje al presionar Enter
-  chatbotInput.addEventListener('keydown', e => {
-    if (e.key === 'Enter' && chatbotInput.value.trim() !== '') {
-      const userText = chatbotInput.value.trim();
-      addMessage(userText, 'user');
-      chatbotInput.value = '';
-      setTimeout(() => {
-        respondTo(userText);
-      }, 700);
-    }
-  });
-
-  function addMessage(text, sender) {
-    const messageDiv = document.createElement('div');
-    messageDiv.textContent = text;
-    messageDiv.className = sender === 'user' ? 'user-message' : 'bot-message';
-    chatbotMessages.appendChild(messageDiv);
-    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-  }
-
-  function sendBotMessage(text) {
-    addMessage(text, 'bot');
-  }
-
-  function respondTo(text) {
-    const lower = text.toLowerCase();
-    let response = "Lo siento, no entendí tu pregunta. Puedes escribirnos directamente desde la página de contacto.";
-
-    if (lower.includes('hola') || lower.includes('buenas')) {
-      response = "¡Hola! ¿Cómo puedo ayudarte hoy?";
-    } else if (lower.includes('servicio') || lower.includes('qué haces')) {
-      response = "Ofrecemos diseño web personalizado, desarrollo responsivo, mantenimiento SEO, tiendas online y más.";
-    } else if (lower.includes('contacto') || lower.includes('cómo contacto')) {
-      response = "Puedes usar el formulario de contacto o enviarnos un email a info@estudio3dh.com.";
-    } else if (lower.includes('precio') || lower.includes('cuánto cuesta')) {
-      response = "Nuestros precios dependen del proyecto. ¡Contáctanos para un presupuesto sin compromiso!";
-    } else if (lower.includes('gracias')) {
-      response = "¡De nada! Si tienes más preguntas, estoy aquí para ayudarte.";
-    }
-
-    sendBotMessage(response);
-  }
-</script>
-
-
-
 </body>
 
 </html>

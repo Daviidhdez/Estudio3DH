@@ -795,3 +795,12 @@ footer p a:hover {
 .hidden {
   display: none;
 }
+
+ .error {
+    border: 2px solid red;
+  }
+  .error-message {
+    color: red;
+    font-size: 0.9em;
+    margin: 5px 0 10px 0;
+  }
