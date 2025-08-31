@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 const openai = new OpenAI({
-  apiKey: "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" // <--- pon aquí tu clave
+  apiKey: "" // <--- pon aquí tu clave
 });
 
 app.post("/chat", async (req, res) => {

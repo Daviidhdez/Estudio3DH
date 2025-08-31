@@ -1,7 +1,4 @@
 
-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
-
-IA Index 
 
 <script>
 const chatbotWindow = document.getElementById('chatbot-window');
